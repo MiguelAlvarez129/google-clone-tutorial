@@ -8,17 +8,24 @@ function SearchBar() {
 
   const search = (e : React.FormEvent<HTMLFormElement>) => {
    e.preventDefault();
-   const value = ref.current.value
+   if (ref.current){
+     const value = ref.current.value
+     if (!value) return;
+   
+     router.push(`/search?term=${value}`)
+    }
+  }
 
-   if (!value) return;
-
-   router.push(`/search?term=${value}`)
+  const clear = () =>{
+    if (ref.current){
+      ref.current.value = ''
+    }
   }
 
   return router.pathname == "/search" ? (
 		   <form className='flex flex-grow border border-gray-200 px-6 py-3 ml-10 mr-5 rounded-full shadow-lg max-w-3xl items-center' onSubmit={search}>
        <input type="text" ref={ref} className="flex-grow w-full focus:outline-none" />
-       <XMarkIcon className='h-7 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125' onClick={() => ref.current.value = "" }/>
+       <XMarkIcon className='h-7 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125' onClick={clear}/>
        <MicrophoneIcon className='h-6 mr-3 hidden sm:inline-flex text-blue-500 border-l-2 pl-4 border-gray-300'/>
        <MagnifyingGlassIcon className='h-6 text-blue-500 hidden sm:inline-flex' />
        <button hidden type="submit"> Search </button>
@@ -34,7 +41,7 @@ function SearchBar() {
         <div className='flex flex-col w-1/2 space-y-2 justify-center mt-9 sm:space-y-0 sm:flex-row sm:space-x-4'>
           <button className='btn' type="submit" >Google Search</button>
 
-          <button className='btn'> I'm feeling lucky</button>
+          <button className='btn'> I&apos;m feeling lucky</button>
         </div>
       </form>
 	)

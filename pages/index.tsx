@@ -9,17 +9,6 @@ import SearchBar from '@/components/SearchBar'
 
 
 export default function Home() {
-  const router = useRouter()
-  const ref = useRef<HTMLInputElement>(null)
-
-  const search = (e : React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const value = ref.current.value
-
-    if (!value) return;
-
-    router.push(`/search?term=${value}`)
-  }
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
       <Head>
@@ -53,18 +42,6 @@ export default function Home() {
           height={100}
         />
         <SearchBar/>
-      {/* <form className="flex flex-col items-center flex-grow w-4/5" onSubmit={search}>
-        <div className='flex w-full hover:shadow-lg focus-within:shadow-lg max-w-md rounded-full border border-gray-200 px-5 py-3 items-center sm:max-w-xl lg:max-w-2xl'>
-          <MagnifyingGlassIcon className='mr-3 h-5 text-gray-500' />
-          <input type="text" className='focus:outline-none flex-grow' ref={ref} />
-          <MicrophoneIcon className='h-5 text-gray-500'/>
-        </div>
-        <div className='flex flex-col w-1/2 space-y-2 justify-center mt-9 sm:space-y-0 sm:flex-row sm:space-x-4'>
-          <button className='btn' type="submit">Google Search</button>
-
-          <button className='btn'> I'm feeling lucky</button>
-        </div>
-      </form> */}
       </div>
       <Footer/>
     </div>
