@@ -24,7 +24,7 @@ function SearchBar() {
 
   return router.pathname == "/search" ? (
 		   <form className='flex flex-grow border border-gray-200 px-6 py-3 ml-10 mr-5 rounded-full shadow-lg max-w-3xl items-center' onSubmit={search}>
-       <input type="text" ref={ref} className="flex-grow w-full focus:outline-none" />
+       <input type="text" ref={ref} className="flex-grow w-full focus:outline-none" defaultValue={router.query.term}/>
        <XMarkIcon className='h-7 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125' onClick={clear}/>
        <MicrophoneIcon className='h-6 mr-3 hidden sm:inline-flex text-blue-500 border-l-2 pl-4 border-gray-300'/>
        <MagnifyingGlassIcon className='h-6 text-blue-500 hidden sm:inline-flex' />

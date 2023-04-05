@@ -3,8 +3,6 @@ import Image from 'next/image'
 import Avatar from '@/components/Avatar'
 import {ViewfinderCircleIcon} from '@heroicons/react/20/solid' 
 import Footer from '@/components/Footer'
-import { FormEventHandler, useRef } from 'react'
-import { useRouter } from 'next/router'
 import SearchBar from '@/components/SearchBar'
 
 
